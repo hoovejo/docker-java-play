@@ -44,19 +44,12 @@ dependencies {
 jar {
     baseName = 'sample'
     version =  '0.1.0'
-    /*
-    manifest {
-        attributes(
-            'Main-Class': 'com.sample.PingPong'
-        )
-    }
-    */
 }
 group = "poc"
 
 docker {
   baseImage "openjdk:8-jdk-alpine"
-  maintainer 'Joe Hoover "joe_hoover7@hotmail.com"'
+  maintainer "Joe Hoover <joe_hoover7@hotmail.com>"
 }
 
 task buildDocker(type: Docker) {
@@ -69,7 +62,6 @@ task buildDocker(type: Docker) {
   }
   addFile("src/main/scripts/entrypoint.sh", "entrypoint.sh")
   addFile("src/main/static", "hub/static")
-  runCommand("apk add --no-cache bash")
   runCommand("chmod +x /entrypoint.sh")
   entryPoint(['./entrypoint.sh', 'testparm'])
   // exposePort(8080)
