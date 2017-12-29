@@ -6,5 +6,5 @@ Need to figure out a good way to take one giant code base
 and build out (multiple ??) docker containers in an efficient way.
 
 => ./gradle buildDocker
-=> docker run --name pingpong -p 8080:8080 -p 8081:8081 -p 8082:8082 poc/pingpong:latest
+=> docker run --init --detach --name pingpong -p 8080:8080 -p 8081:8081 -p 8082:8082 poc/pingpong:1.0
 => http://localhost:8080/ping
